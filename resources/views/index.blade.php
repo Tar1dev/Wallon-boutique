@@ -6,27 +6,14 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lycée Henri Wallon</title>
-  <link rel="stylesheet" href="../../../wallon-boutique-frontend/src/style.css" />
-  <link rel="stylesheet" href="../../../wallon-boutique-frontend/src/pages/styles/index.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body>
   <div class="menu-overlay"></div>
   <header>
-    <div class="burger-menu">
-      <ion-icon name="menu-outline"></ion-icon>
-    </div>
-    <div class="left">
-      <a href="/"><img src="/logo-wallon.png" alt="Logo du lycée Henri-Wallon de Valenciennes." /></a>
-      <ul class="nav-links">
-        <li><a href="/" class="active"><ion-icon name="home-outline"></ion-icon>Accueil</a></li>
-        <li><a href="/src/pages/products.html"><ion-icon name="pricetag-outline"></ion-icon>Produits</a></li>
-        <li><a href="/src/pages/contact.html"><ion-icon name="call-outline"></ion-icon>Contact</a></li>
-        <li><a href="/src/pages/panier.html"><ion-icon name="bag-handle-outline"></ion-icon>Votre panier</a></li>
-        <li><a href="/src/pages/login.html"><ion-icon name="person-outline"></ion-icon>Connexion</a></li>
-        <li><ion-icon name="sunny-outline"></ion-icon></li>
-      </ul>
-    </div>
+      @include('nav')
   </header>
 
   <h1 class="login-success" hidden>Login Successful</h1>

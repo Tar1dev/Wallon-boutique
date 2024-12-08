@@ -36,6 +36,20 @@
         </div>
 
         <div class="products-grid">
+            @foreach($products as $product)
+                <div class="product-card">
+                    <img width="100" src="{{ $product->image }}" alt="${product.name}" />
+                    <h3>{{ $product->name }}</h3>
+                    <p class="price">{{ $product->price }}€</p>
+                    <div class="product-details">
+
+                        <button class="add-to-cart">
+                            <ion-icon name="cart-outline"></ion-icon>
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </main>
 
