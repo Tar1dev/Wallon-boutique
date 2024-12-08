@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription - Lycée Henri Wallon</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
+</head>
+
+<body>
+    <div class="menu-overlay"></div>
+    <header>
+        <div class="burger-menu">
+            <ion-icon name="menu-outline"></ion-icon>
+        </div>
+        <div class="left">
+            <a href="/"><img src="/logo-wallon.png" alt="Logo du lycée Henri-Wallon de Valenciennes." /></a>
+            <ul class="nav-links">
+                <li><a href="/"><ion-icon name="home-outline"></ion-icon>Accueil</a></li>
+                <li><a href="/src/pages/products.html"><ion-icon name="pricetag-outline"></ion-icon>Produits</a></li>
+                <li><a href="/src/pages/contact.html"><ion-icon
+                            name="call-outline"></ion-icon>Contact</a></li>
+                <li><a href="/src/pages/panier.html"><ion-icon name="bag-handle-outline"></ion-icon>Votre panier</a>
+                </li>
+                <li><a href="/src/pages/login.html"><ion-icon name="person-outline"></ion-icon>Connexion</a></li>
+                <li><ion-icon name="sunny-outline"></ion-icon></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-content">
+            <div class="auth-form">
+                <h2>Bienvenue parmi nous !</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="username">Nom d'utilisateur</label>
+                        <input type="text" id="username" placeholder="Matheux" required autocomplete="username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">Prénom</label>
+                        <input type="text" id="firstName" placeholder="Martin" required autocomplete="given-name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Nom</label>
+                        <input type="text" id="lastName" placeholder="Matin" required autocomplete="family-name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="alex@wallon.com" required autocomplete="email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Niveau</label>
+                        <input type="text" id="level" placeholder="Première" required
+                            autocomplete="organization-title" />
+                    </div>
+                    <div class="form-group">
+                        <label for="classe">Classe</label>
+                        <input type="text" id="classe" placeholder="1e G2" required autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <div class="password-input">
+                            <input type="password" id="password" placeholder="Entrez votre mot de passe" required
+                                autocomplete="new-password" />
+                            <button type="button" class="toggle-password">
+                                <ion-icon name="eye-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">S'inscrire</button>
+                    <div class="register-error" hidden></div>
+                    <div class="register-success" hidden></div>
+                </form>
+                <p class="auth-switch">
+                    Vous avez déjà un compte ? <a href="./login.html">Se connecter ici</a>
+                </p>
+            </div>
+
+            <div class="auth-image">
+                <img src="../../login.png" alt="Illustration du lycée" />
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/src/pages/scripts/theme.js"></script>
+    <script src="/src/pages/scripts/password-toggle.js"></script>
+    <script src="/src/pages/scripts/register.js"></script>
+
+</body>
+
+</html>
