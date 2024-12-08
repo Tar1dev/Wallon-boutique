@@ -6,37 +6,22 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profil - Lycée Henri Wallon</title>
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="./styles/profile.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
 </head>
 
 <body>
     <div class="menu-overlay"></div>
     <header>
-        <div class="burger-menu">
-            <ion-icon name="menu-outline"></ion-icon>
-        </div>
-        <div class="left">
-            <a href="/"><img src="/logo-wallon.png" alt="Logo du lycée Henri-Wallon de Valenciennes." /></a>
-            <ul class="nav-links">
-                <li><a href="/"><ion-icon name="home-outline"></ion-icon>Accueil</a></li>
-                <li><a href="/src/pages/products.html"><ion-icon name="pricetag-outline"></ion-icon>Produits</a></li>
-                <li><a href="/src/pages/contact.html" class="active"><ion-icon
-                            name="call-outline"></ion-icon>Contact</a></li>
-                <li><a href="/src/pages/panier.html"><ion-icon name="bag-handle-outline"></ion-icon>Votre panier</a>
-                </li>
-                <li><a href="/src/pages/login.html"><ion-icon name="person-outline"></ion-icon>Connexion</a></li>
-                <li><ion-icon name="sunny-outline"></ion-icon></li>
-            </ul>
-        </div>
+        @include('nav')
     </header>
 
     <main class="profile-container">
         <div class="profile-content">
             <div class="profile-header">
                 <ion-icon name="person-circle-outline"></ion-icon>
-                <h2>Martin Matin</h2>
-                <p class="user-info">1e G2 • alex@wallon.com</p>
+                <h2>{{ auth()->user()->name }} {{ auth()->user()->first_name }}</h2>
+                <p class="user-info">{{ auth()->user()->class_level }} {{ auth()->user()->class_number }} • {{ auth()->user()->email }}</p>
             </div>
 
             <div class="profile-sections">
@@ -58,17 +43,17 @@
                             <ion-icon name="key-outline"></ion-icon>
                             Changer le mot de passe
                         </button>
-                        <button class="settings-btn logout">
+                        <a class="settings-btn logout" href="{{ route('auth.logout') }}">
                             <ion-icon name="log-out-outline"></ion-icon>
                             Se déconnecter
-                        </button>
+                        </a>
                     </div>
                 </section>
             </div>
         </div>
     </main>
 
-    <script src="/src/pages/scripts/theme.js"></script>
+    <script src="/js/theme.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

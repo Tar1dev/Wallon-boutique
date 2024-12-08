@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use function Termwind\render;
 
 class UserController extends Controller
 {
@@ -14,9 +15,12 @@ class UserController extends Controller
 
     public function me()
     {
-        if (Auth::check() && Auth::user()->role === 'admin') {
-            return redirect('/admin');
+        if (Auth::check()) {
+            if (Auth::user()->role === 'admin') {
+                return redirect('/admin');
+            }
+            return view('profile');
         }
-        return Auth::user();
+        return redirect()->route('home');
     }
 }

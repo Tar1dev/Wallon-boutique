@@ -25,7 +25,9 @@ class AuthController extends Controller
 
          return to_route('auth.login')->withErrors([
              "error" => "Mauvais utilisateur ou mot de passe !"
-         ])->onlyInput('email');
+         ])->withInput([
+             "email" => $creds["email"],
+         ]);
     }
 
     public function register_view() {
@@ -48,6 +50,11 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
         return redirect()->route('products.index');
+    }
+
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect()->route('home');
     }
 
 }

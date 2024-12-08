@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>Admin panel</h1>
+    <a href="{{ route('auth.logout') }}">Logout</a>
 </body>
 </html>
