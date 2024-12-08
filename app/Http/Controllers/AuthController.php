@@ -50,9 +50,4 @@ class AuthController extends Controller
         return redirect()->route('products.index');
     }
 
-    public function getUsers(Request $request) {
-
-
-        return User::all();
-    }
 }

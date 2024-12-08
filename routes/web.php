@@ -15,15 +15,10 @@ Route::post('/auth/login', [\App\Http\Controllers\AuthController::class, 'doLogi
 Route::get('/auth/register', [\App\Http\Controllers\AuthController::class, 'register_view'])->name('auth.register_view');
 Route::post('/auth/register', [\App\Http\Controllers\AuthController::class, 'doRegister'])->name('auth.register');
 
-Route::get('/users', [\App\Http\Controllers\AuthController::class, 'getUsers'])
+Route::get('/users', [\App\Http\Controllers\UserController::class, 'all'])
 ->middleware(\App\Http\Middleware\CheckRole::class);
 
-Route::get('/users/me', function () {
-    if (Auth::check() && Auth::user()->role === 'admin') {
-        return redirect('/admin');
-    }
-    return \Illuminate\Support\Facades\Auth::user();
-});
+Route::get('/users/me', [\App\Http\Controllers\UserController::class, 'me']);
 
 Route::get('/admin', function () {
     return view('admin');
