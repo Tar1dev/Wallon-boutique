@@ -1,3 +1,4 @@
+<div class="menu-overlay"></div>
 <div class="burger-menu">
     <ion-icon name="menu-outline"></ion-icon>
 </div>

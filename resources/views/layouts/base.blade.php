@@ -9,6 +9,10 @@
     @vite(['resources/css/style.css', 'resources/js/main.js', 'resources/js/theme.js'])
 </head>
 
+<header>
+    @include('layouts.nav')
+</header>
+
 <body>
 
 @yield('content')
@@ -16,5 +20,7 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
+@include('layouts.footer')
 
 </html>

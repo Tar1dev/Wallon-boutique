@@ -2,10 +2,8 @@
 
 @section('content')
 
-    <div class="menu-overlay"></div>
-    <header>
-        @include('layouts.nav')
-    </header>
+
+
 
     <h1 class="login-success" hidden>Login Successful</h1>
 
@@ -59,5 +57,4 @@
         </div>
     </div>
 
-    @include('layouts.footer')
 @endsection
