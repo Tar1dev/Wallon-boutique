@@ -41,33 +41,4 @@ document.addEventListener("DOMContentLoaded", () => {
     const icon = burgerMenu.querySelector("ion-icon");
     icon.setAttribute("name", "menu-outline");
   });
-
-  // check perms
-  const encoded_JWT = getCookie("token_cookie");
-  if (encoded_JWT != null) {
-    const decoded_JWT = getJWTData(encoded_JWT);
-  
-    if (decoded_JWT.userRole === "ADMIN") {
-      console.log("auth as admin !");
-      window.location = "/src/pages/admin.html"
-    }
-  }
 });
-
-function getCookie(name) {
-  const cookies = document.cookie.split('; '); // Split cookies into an array
-  for (const cookie of cookies) {
-      const [key, value] = cookie.split('='); // Split each cookie into key and value
-      if (key === name) {
-          return decodeURIComponent(value); // Return the decoded value
-      }
-  }
-  return null; // Return null if the cookie is not found
-}
-
-function getJWTData(token) {
-  const payload = token.split('.')[1];
-  const base64Url = payload.replace(/-/g, '+').replace(/_/g, '/');
-  const base64 = atob(base64Url); // Decode the Base64 string
-  return JSON.parse(base64); // Parse the JSON
-};
