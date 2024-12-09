@@ -6,7 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lycée Henri Wallon</title>
-    @vite(['public/css/style.css', 'public/js/main.js', 'public/js/theme.js'])
+    @vite(['resources/css/style.css', 'resources/js/main.js', 'resources/js/theme.js'])
 </head>
 
 <body>
