@@ -34,16 +34,26 @@
                 <p class="price">{{ $product->price }}€</p>
                 <div class="product-details">
 
-                    <button class="add-to-cart">
+                    <a href="{{ route('panier.add') }}?productId={{ $product->id }}&quantity=1" class="add-to-cart">
                         <ion-icon name="cart-outline"></ion-icon>
                         Ajouter au panier
-                    </button>
+                    </a>
                 </div>
             </div>
         @endforeach
     </div>
 </main>
 
+@if(isset($message))
+    <div class="message-success">
+        {{ $message }}
+    </div>
+@endif
+
+
 @vite(['resources/css/products.css', 'resources/js/products/js'])
 
+    @error('validated')
+    <p class="login-error">{{ $validated->errors() }}</p>
+    @enderror
 @endsection

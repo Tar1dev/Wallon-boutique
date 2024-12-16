@@ -8,8 +8,8 @@
         <li><a href="/"><ion-icon name="home-outline"></ion-icon>Accueil</a></li>
         <li><a href="/products" class="active"><ion-icon
                     name="pricetag-outline"></ion-icon>Produits</a></li>
-        <li><a href="/src/pages/contact.html"><ion-icon name="call-outline"></ion-icon>Contact</a></li>
-        <li><a href="/src/pages/panier.html"><ion-icon name="bag-handle-outline"></ion-icon>Votre panier</a>
+        <li><a href="{{ route('contact') }}"><ion-icon name="call-outline"></ion-icon>Contact</a></li>
+        <li><a href="{{ route('panier') }}"><ion-icon name="bag-handle-outline"></ion-icon>Votre panier</a>
         </li>
         @if(auth()->user())
             <li><a href="{{ url('/users/me') }}"><ion-icon name="person-outline"></ion-icon>{{ auth()->user()->name }}</a></li>

@@ -132,3 +132,19 @@ ion-icon {
     padding: 1rem;
   }
 }
+
+
+.message-success {
+    position: fixed;
+    top: 90%; /* Centers it vertically */
+    left: 85%; /* Centers it horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1000; /* Ensures it appears above other content */
+    display: block; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out;
+}
