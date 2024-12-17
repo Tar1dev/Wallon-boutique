@@ -33,3 +33,4 @@ Route::get("/contact", function () {
 // Cart
 Route::get('/panier', [\App\Http\Controllers\UserController::class, 'getCart'])->name('panier');
 Route::get('/panier/add', [\App\Http\Controllers\UserController::class, 'addToCart'])->name('panier.add');
+Route::get('/panier/remove', [\App\Http\Controllers\UserController::class, 'removeFromCart'])->name('panier.remove');

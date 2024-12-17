@@ -5,25 +5,26 @@
     <main class="cart-container">
         <h1>Votre panier</h1>
 
-        {{ dd($cart) }}
 
         <div class="cart-content">
             <div class="cart-items">
-                <div class="cart-item">
-                    <img src="/product1.png" alt="Produit" />
-                    <div class="item-details">
-                        <div class="item-header">
-                            <h3>Nom du produit</h3>
-                            <button class="delete-btn">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </button>
+                @foreach($cart as $cart_object)
+                    <div class="cart-item">
+                        <img src="{{ $cart_object["product"]["image"] }}" alt="Produit" />
+                        <div class="item-details">
+                            <div class="item-header">
+                                <h3>{{ $cart_object["product"]["name"] }}</h3>
+                                <a class="delete-btn" href="{{ route('panier.remove') }}?productId={{ $cart_object["product"]["id"] }}&quantity=1">
+                                    <ion-icon name="trash-outline"></ion-icon>
+                                </a>
+                            </div>
+                            @if(isset($cart_object["product"]["size"]))
+                                <p>Taille : $cart_object["product"]["size"]</p>
+                            @endif
+                            <p>Quantité : {{ $cart_object["quantity"] }}</p>
                         </div>
-                        <p>Référence : xxxxx</p>
-                        <p>Couleur : [couleur]</p>
-                        <p>Taille : S</p>
-                        <p>Quantité : 1</p>
                     </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="cart-summary">
