@@ -55,6 +55,10 @@ class UserController extends Controller
     }
 
     public function addToCart(AddToCartRequest $request) {
+        if (!Auth::check()) {
+            return redirect()->route('auth.login');
+        }
+
         $validated = $request->validated();
 
         $productId = $validated['productId'];
