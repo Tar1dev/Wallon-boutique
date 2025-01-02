@@ -5,17 +5,11 @@
 <div class="left">
     <a href="/"><img src="/logo-wallon.png" alt="Logo du lycée Henri-Wallon de Valenciennes." /></a>
     <ul class="nav-links">
-        <li><a href="/"><ion-icon name="home-outline"></ion-icon>Accueil</a></li>
-        <li><a href="/products" class="active"><ion-icon
-                    name="pricetag-outline"></ion-icon>Produits</a></li>
-        <li><a href="{{ route('contact') }}"><ion-icon name="call-outline"></ion-icon>Contact</a></li>
-        <li><a href="{{ route('panier') }}"><ion-icon name="bag-handle-outline"></ion-icon>Votre panier</a>
-        </li>
-        @if(auth()->user())
-            <li><a href="{{ url('/users/me') }}"><ion-icon name="person-outline"></ion-icon>{{ auth()->user()->name }}</a></li>
-        @else
-        <li><a href="/auth/login"><ion-icon name="person-outline"></ion-icon>Connexion</a></li>
-        @endif
-        <li><ion-icon name="sunny-outline"></ion-icon></li>
+
+        <x-nav-link href="/" :active="request()->is('/')"><ion-icon name="home-outline"></ion-icon>Accueil</x-nav-link>
+        <x-nav-link href="/contact" :active="request()->is('contact')"><ion-icon name="call-outline"></ion-icon>Contact</x-nav-link>
+        <x-nav-link href="/products" :active="request()->is('products*')"><ion-icon name="pricetag-outline"></ion-icon>Produits</x-nav-link>
+        <x-nav-link href="/panier" :active="request()->is('panier*')"><ion-icon name="bag-handle-outline"></ion-icon>Votre panier</x-nav-link>
+        <x-nav-link href="/auth/login" :active="request()->is('auth*')"><ion-icon name="person-outline"></ion-icon>Connexion</x-nav-link>
     </ul>
 </div>

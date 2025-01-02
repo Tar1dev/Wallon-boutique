@@ -39,14 +39,10 @@ class AuthController extends Controller
         $validated = $request->validated();
 
 
-        $user = User::create([
-            'email' => $validated['email'],
-            'name' => $validated['name'],
-            'first_name' => $validated['first_name'],
-            'class_level' => $validated['class_level'],
-            'class_number' => $validated['class_number'],
-            'password' => Hash::make($validated['password']),
-        ]);
+        $user = User::create(array_merge(
+            $validated,
+            ['password' => Hash::make($validated['password'])]
+        ));
 
         $request->session()->regenerate();
         return redirect()->route('products.index');

@@ -8,20 +8,20 @@
 
         <div class="cart-content">
             <div class="cart-items">
-                @foreach($cart as $cart_object)
+                @foreach($cart->products as $product)
                     <div class="cart-item">
-                        <img src="{{ $cart_object["product"]["image"] }}" alt="Produit" />
+                        <img src="{{ $product["image"] }}" alt="Produit" />
                         <div class="item-details">
                             <div class="item-header">
-                                <h3>{{ $cart_object["product"]["name"] }}</h3>
-                                <a class="delete-btn" href="{{ route('panier.remove') }}?productId={{ $cart_object["product"]["id"] }}&quantity=1">
+                                <h3>{{ $product["name"] }}</h3>
+                                <a class="delete-btn" href="{{ route('panier.remove') }}?productId={{ $product["id"] }}&quantity=1">
                                     <ion-icon name="trash-outline"></ion-icon>
                                 </a>
                             </div>
-                            @if(isset($cart_object["product"]["size"]))
+                            @if(isset($product["size"]))
                                 <p>Taille : $cart_object["product"]["size"]</p>
                             @endif
-                            <p>Quantité : {{ $cart_object["quantity"] }}</p>
+                            <p>Quantité : {{ $product->pivot->quantity }}</p>
                         </div>
                     </div>
                 @endforeach

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
+
 
 class ProductController extends Controller
 {
@@ -11,5 +12,11 @@ class ProductController extends Controller
     {
         $products = Product::all();
         return view('products.index')->with('products', $products);
+    }
+
+    public function create(Request $request)
+    {
+        $product = Product::create($request->all());
+        return $product;
     }
 }
