@@ -34,3 +34,8 @@ Route::get("/contact", function () {
 Route::get('/panier', [\App\Http\Controllers\CartController::class, 'getCart'])->name('panier');
 Route::get('/panier/add', [\App\Http\Controllers\CartController::class, 'addToCart'])->name('panier.add');
 Route::get('/panier/remove', [\App\Http\Controllers\CartController::class, 'removeFromCart'])->name('panier.remove');
+
+
+Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'getOrders'])->name('orders.index');
+//Route::get('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'getOrder'])->name('orders.one');
+Route::get('/orders/new', [\App\Http\Controllers\OrderController::class, 'newOrder'])->name('orders.new');

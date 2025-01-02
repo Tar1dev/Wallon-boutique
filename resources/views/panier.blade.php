@@ -25,6 +25,9 @@
                         </div>
                     </div>
                 @endforeach
+                @if($cart->products->isEmpty())
+                        <p>Votre panier est vide !</p>
+                @endif
             </div>
 
             <div class="cart-summary">
@@ -38,7 +41,7 @@
                 </div>
                 <div class="summary-line total">
                     <span>Total :</span>
-                    <span>XX.XX€</span>
+                    <span>{{ $totalAmount }}€</span>
                 </div>
                 <button class="validate-order">
                     <ion-icon name="mail-outline" style="color: white"></ion-icon>

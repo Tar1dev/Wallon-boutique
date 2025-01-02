@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddToCartRequest;
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,13 @@ class CartController extends Controller
             return redirect()->route('auth.login');
         }
         $cart= Auth::user()->cart()->firstOrCreate();
-        return view('panier')->with('cart', $cart);
+
+        $totalAmount = 0;
+        foreach ($cart->products as $product) {
+            $totalAmount += $product->price * $product->pivot->quantity;
+        }
+
+        return view('panier')->with(['cart' => $cart, 'totalAmount' => $totalAmount]);
     }
 
     public function addToCart(Request $request) {
