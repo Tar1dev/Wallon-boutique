@@ -10,6 +10,11 @@
         <x-nav-link href="/contact" :active="request()->is('contact')"><ion-icon name="call-outline"></ion-icon>Contact</x-nav-link>
         <x-nav-link href="/products" :active="request()->is('products*')"><ion-icon name="pricetag-outline"></ion-icon>Produits</x-nav-link>
         <x-nav-link href="/panier" :active="request()->is('panier*')"><ion-icon name="bag-handle-outline"></ion-icon>Votre panier</x-nav-link>
-        <x-nav-link href="/auth/login" :active="request()->is('auth*')"><ion-icon name="person-outline"></ion-icon>Connexion</x-nav-link>
+        @if(auth()->check())
+            <x-nav-link href="/users/me" :active="request()->is('auth*')"><ion-icon name="person-outline"></ion-icon>{{ auth()->user()->name }}</x-nav-link>
+        @else
+            <x-nav-link href="/auth/login" :active="request()->is('auth*')"><ion-icon name="person-outline"></ion-icon>Connexion</x-nav-link>
+        @endif
+        <li><ion-icon name="sunny-outline"></ion-icon></li>
     </ul>
 </div>

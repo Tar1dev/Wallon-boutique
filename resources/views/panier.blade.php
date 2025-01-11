@@ -43,10 +43,12 @@
                     <span>Total :</span>
                     <span>{{ $totalAmount }}€</span>
                 </div>
-                <button class="validate-order">
-                    <ion-icon name="mail-outline" style="color: white"></ion-icon>
-                    Valider la commande
-                </button>
+                <a href="/orders/new">
+                    <button class="validate-order" type="submit">
+                        <ion-icon name="mail-outline" style="color: white"></ion-icon>
+                        Valider la commande
+                    </button>
+                </a>
                 <p class="order-note">La validation vous permettra d'obtenir un bon de commande à présenter le jour de
                     la récupération de votre commande.</p>
                 <p class="payment-note">Le paiement aura lieu en chèque ou en espèce au même moment.</p>

@@ -37,5 +37,5 @@ Route::get('/panier/remove', [\App\Http\Controllers\CartController::class, 'remo
 
 
 Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'getOrders'])->name('orders.index');
-//Route::get('/orders/{order}', [\App\Http\Controllers\OrderController::class, 'getOrder'])->name('orders.one');
+Route::get('/orders/show/{id}', [\App\Http\Controllers\OrderController::class, 'getOrder'])->name('orders.one');
 Route::get('/orders/new', [\App\Http\Controllers\OrderController::class, 'newOrder'])->name('orders.new');

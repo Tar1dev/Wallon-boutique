@@ -10,9 +10,14 @@ class OrderController extends Controller
 {
     public function getOrders() {
         if (Auth::user()->role === "admin") {
-
+            return Order::with('products')->get();
         }
-        return Order::with('products')->get();
+    }
+
+    public function getOrder($id) {
+        if (Auth::user()->role === "admin") {
+            return Order::with('products')->find($id);
+        }
     }
 
 
@@ -27,5 +32,12 @@ class OrderController extends Controller
         }
 
         return "sucessful order !";
+    }
+
+    public function deleteOrder($id) {
+        $order = Auth::user()->orders()->find($id);
+        $order->products()->detach();
+        $order->delete();
+        return "order deleted !";
     }
 }
